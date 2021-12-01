@@ -1,0 +1,16 @@
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0 auto;
+  padding: 0;
+  width: 60%;
+  padding-top: 10px;
+  /*background-color: #ff7a59;*/
+}
+
+h1 {
+  padding: 50px 0;
+}
+
+button.btn {
+  background-color: #ff7a59;
+}
