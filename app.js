@@ -1,3 +1,4 @@
+require('dotenv').config({ path: __dirname + '/.env' });
 const express = require("express");
 const https = require("https");
 const app = express();
@@ -49,11 +50,14 @@ app.post("/", function (req, res) {
         }
     }
 
+    const portal = process.env.PORTAL;
+    const form = process.env.FORM;
+
     const jsonData = JSON.stringify(data);
-    const url = "https://api.hsforms.com/submissions/v3/integration/submit/25327336/bf915eed-0221-4510-b918-9414d27e68d9";
+    const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portal}/${form}`;
     const options = {
         method: "POST",
-        auth: "eu1-151b-98b3-4364-bd01-66565929d3a5"
+        auth: process.env.KEY_API
     }
     const request = https.request(url, options, function (response) {
         res.sendFile(__dirname + "/success.html");
